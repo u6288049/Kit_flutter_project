@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/rendering.dart';
 
 import 'package:wake_me_refresh/model/chronotype.dart';
 
@@ -33,7 +34,7 @@ class _ChronotypePageState extends State<ChronotypePage> {
         ),
       ),
       body: Padding(
-          padding: const EdgeInsets.fromLTRB(0.0, 10.0, 0.0, 0.0),
+          padding: const EdgeInsets.fromLTRB(10.0, 10.0, 10.0, 10.0),
           child: getInformationBody(context)
       ),
     );
@@ -41,7 +42,7 @@ class _ChronotypePageState extends State<ChronotypePage> {
 
   getInformationBody(BuildContext context) {
     return ListView.builder(
-      itemCount: ChronotypeModel.chronotype.length.compareTo(0),
+      itemCount: ChronotypeModel.chronotype.length,
       itemBuilder: _getItemUI,
       padding: const EdgeInsets.all(0.0),
     );
@@ -55,21 +56,15 @@ class _ChronotypePageState extends State<ChronotypePage> {
               leading: Image.asset(
                 ChronotypeModel.chronotype[index].image,
                 fit: BoxFit.cover,
-                width: 100.0,
               ),
               title: Text(
                 ChronotypeModel.chronotype[index].name,
-                style: const TextStyle(fontSize: 14.0, fontWeight: FontWeight.bold),
+                style: const TextStyle(fontSize: 20.0, fontWeight: FontWeight.bold),
               ),
-              subtitle: Column(
-                  mainAxisAlignment: MainAxisAlignment.start,
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: <Widget>[
-                    Text(ChronotypeModel.chronotype[index].information[index].trait,
-                        style: const TextStyle(
-                            fontSize: 13.0, fontWeight: FontWeight.normal),
-                    ),
-                  ]
+              subtitle: Text(
+                ChronotypeModel.chronotype[index].trait,
+                style: const TextStyle(
+                    fontSize: 13.0, fontWeight: FontWeight.normal),
               ),
             ),
           ],

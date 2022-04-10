@@ -1,4 +1,8 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+
+import 'package:wake_me_refresh/page/setsleep.dart';
+import 'package:wake_me_refresh/page/setwakeup.dart';
 
 class CalculatorPage extends StatefulWidget {
   static const routeName = '/calculator';
@@ -13,9 +17,11 @@ class CalculatorPage extends StatefulWidget {
 
 class _CalculatorPageState extends State<CalculatorPage> {
 
+  String radioButtonItem = 'Bear';
+  int id = 1;
+
   @override
   Widget build(BuildContext context) {
-
     return Scaffold(
       appBar: AppBar(
         title: Row(
@@ -34,25 +40,158 @@ class _CalculatorPageState extends State<CalculatorPage> {
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: <Widget>[
+              Padding(
+                  padding: EdgeInsets.all(14.0),
+                  child: Text('Your Chronotype : ' + '$radioButtonItem',
+                      style: TextStyle(fontSize: 21))
+              ),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: <Widget>[
+                  Radio(
+                    value: 1,
+                    groupValue: id,
+                    onChanged: (val) {
+                      setState(() {
+                        radioButtonItem = 'Bear';
+                        id = 1;
+                      });
+                    },
+                  ),
+                  Text(
+                    'Bear',
+                    style: new TextStyle(fontSize: 17.0),
+                  ),
+
+                  Radio(
+                    value: 2,
+                    groupValue: id,
+                    onChanged: (val) {
+                      setState(() {
+                        radioButtonItem = 'Lion';
+                        id = 2;
+                      });
+                    },
+                  ),
+                  Text(
+                    'Lion',
+                    style: new TextStyle(
+                      fontSize: 17.0,
+                    ),
+                  ),
+
+                  Radio(
+                    value: 3,
+                    groupValue: id,
+                    onChanged: (val) {
+                      setState(() {
+                        radioButtonItem = 'Wolf';
+                        id = 3;
+                      });
+                    },
+                  ),
+                  Text(
+                    'Wolf',
+                    style: new TextStyle(fontSize: 17.0),
+                  ),
+                  Radio(
+                    value: 4,
+                    groupValue: id,
+                    onChanged: (val) {
+                      setState(() {
+                        radioButtonItem = 'Dolphin';
+                        id = 4;
+                      });
+                    },
+                  ),
+                  Text(
+                    'Dolphin',
+                    style: new TextStyle(fontSize: 17.0),
+                  ),
+                ],
+              ),
+
               Image.asset(
-                'images/chronotype/bear.png',
-                width: 100,
-                height: 100,
+                'images/navbar_icon/wakeup.png',
+                width: 120,
+                height: 120,
+              ),
+              Container(
+                height: 52.0,
+                margin: EdgeInsets.all(15),
+                child: RaisedButton(
+                  onPressed: () =>  Navigator.push(
+                    context,
+                    MaterialPageRoute(builder: (context) => Builder(
+                        builder: (context) {
+                          return const SetWakePage();
+                        })
+                    ),
+                  ),
+                  padding: EdgeInsets.all(0.0),
+                  shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(75.0)),
+                  child: Ink(
+                    decoration: BoxDecoration(
+                        gradient: LinearGradient(colors: [Color(0xffffee58), Color(0xfffff176)],
+                          begin: Alignment.centerLeft,
+                          end: Alignment.centerRight,
+                        ),
+                        borderRadius: BorderRadius.circular(28.0)
+                    ),
+                    child: Container(
+                      constraints: BoxConstraints(maxWidth: 220.0, minHeight: 52.0),
+                      alignment: Alignment.center,
+                      child: Text(
+                        "Set Your Wake-up Time",
+                        textAlign: TextAlign.center,
+                        style: TextStyle(
+                            color: Colors.black87
+                        ),
+                      ),
+                    ),
+                  ),
+                ),
               ),
               Image.asset(
-                'images/chronotype/lion.png',
-                width: 100,
-                height: 100,
+                'images/navbar_icon/sleep.png',
+                width: 120,
+                height: 120,
               ),
-              Image.asset(
-                'images/chronotype/wolf.png',
-                width: 100,
-                height: 100,
-              ),
-              Image.asset(
-                'images/chronotype/dolphin.png',
-                width: 100,
-                height: 100,
+              Container(
+                height: 52.0,
+                margin: EdgeInsets.all(15),
+                child: RaisedButton(
+                  onPressed: () =>  Navigator.push(
+                    context,
+                    MaterialPageRoute(builder: (context) => Builder(
+                      builder: (context) {
+                        return const SetSleepPage();
+                      })
+                    ),
+                  ),
+                  padding: EdgeInsets.all(0.0),
+                  shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(75.0)),
+                  child: Ink(
+                    decoration: BoxDecoration(
+                        gradient: LinearGradient(colors: [Color(0xffffee58), Color(0xfffff176)],
+                          begin: Alignment.centerLeft,
+                          end: Alignment.centerRight,
+                        ),
+                        borderRadius: BorderRadius.circular(28.0)
+                    ),
+                    child: Container(
+                      constraints: BoxConstraints(maxWidth: 220.0, minHeight: 52.0),
+                      alignment: Alignment.center,
+                      child: Text(
+                        "Set Your Bed Time",
+                        textAlign: TextAlign.center,
+                        style: TextStyle(
+                            color: Colors.black87
+                        ),
+                      ),
+                    ),
+                  ),
+                ),
               ),
             ],
           )

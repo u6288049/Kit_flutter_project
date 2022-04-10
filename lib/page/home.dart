@@ -40,7 +40,7 @@ class _MyHomePageState extends State<MyHomePage> {
         height: 50,
         fit:BoxFit.fill,
       ),
-      label: 'Calulator',
+      label: 'Calculator',
     ),
     BottomNavigationBarItem(
       icon: Image.asset(
