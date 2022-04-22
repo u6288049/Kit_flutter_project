@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
-
 import 'package:wake_me_refresh/model/chronotype.dart';
 
 class ChronotypePage extends StatefulWidget {
@@ -35,7 +34,7 @@ class _ChronotypePageState extends State<ChronotypePage> {
       ),
       body: Padding(
           padding: const EdgeInsets.fromLTRB(10.0, 10.0, 10.0, 10.0),
-          child: getInformationBody(context)
+          child: getInformationBody(context),
       ),
     );
   }

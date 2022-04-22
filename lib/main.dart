@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:wake_me_refresh/common/theme.dart';
 import 'package:wake_me_refresh/page/calculator.dart';
 import 'package:wake_me_refresh/page/chronotype.dart';
+import 'package:wake_me_refresh/page/firsthome.dart';
 import 'package:wake_me_refresh/page/home.dart';
 import 'package:wake_me_refresh/page/test.dart';
 
@@ -20,6 +21,7 @@ class MyApp extends StatelessWidget{
       title: 'First Flutter App',
       initialRoute: '/',
       routes: {
+        FirstHomePage.routeName: (context) => FirstHomePage(),
         MyHomePage.routeName: (context) => const MyHomePage(),
         TestPage.routeName: (context) => const TestPage(),
         CalculatorPage.routeName: (context) => const CalculatorPage(),

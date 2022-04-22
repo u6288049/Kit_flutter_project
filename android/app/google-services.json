@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "1092690309617",
+    "project_id": "wake-me-refresh",
+    "storage_bucket": "wake-me-refresh.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1092690309617:android:2e2c844768c352925b1450",
+        "android_client_info": {
+          "package_name": "com.example.wake_me_refresh"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "1092690309617-lf0odc56tcfo99u73gt9k69a3vgktadd.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDwWVns9YK2cVZCy9tpbyajbOY1iq3vT5c"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "1092690309617-lf0odc56tcfo99u73gt9k69a3vgktadd.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

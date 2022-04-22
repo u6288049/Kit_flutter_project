@@ -42,7 +42,7 @@ class _CalculatorPageState extends State<CalculatorPage> {
             children: <Widget>[
               Padding(
                   padding: EdgeInsets.all(14.0),
-                  child: Text('Your Chronotype : ' + '$radioButtonItem',
+                  child: Text('Your Chronotype : ' + radioButtonItem,
                       style: TextStyle(fontSize: 21))
               ),
               Row(
@@ -124,8 +124,9 @@ class _CalculatorPageState extends State<CalculatorPage> {
                     context,
                     MaterialPageRoute(builder: (context) => Builder(
                         builder: (context) {
-                          return const SetWakePage();
-                        })
+                          //return const SetWakePage();
+                          return SetWakePage(getType: id,);
+                        }),
                     ),
                   ),
                   padding: EdgeInsets.all(0.0),
@@ -142,7 +143,7 @@ class _CalculatorPageState extends State<CalculatorPage> {
                       constraints: BoxConstraints(maxWidth: 220.0, minHeight: 52.0),
                       alignment: Alignment.center,
                       child: Text(
-                        "Set Your Wake-up Time",
+                        "Set Your Sleep Time",
                         textAlign: TextAlign.center,
                         style: TextStyle(
                             color: Colors.black87
@@ -165,7 +166,7 @@ class _CalculatorPageState extends State<CalculatorPage> {
                     context,
                     MaterialPageRoute(builder: (context) => Builder(
                       builder: (context) {
-                        return const SetSleepPage();
+                        return SetSleepPage(getType: id,);
                       })
                     ),
                   ),
@@ -183,7 +184,7 @@ class _CalculatorPageState extends State<CalculatorPage> {
                       constraints: BoxConstraints(maxWidth: 220.0, minHeight: 52.0),
                       alignment: Alignment.center,
                       child: Text(
-                        "Set Your Bed Time",
+                        "Set Your Wake-up Time",
                         textAlign: TextAlign.center,
                         style: TextStyle(
                             color: Colors.black87

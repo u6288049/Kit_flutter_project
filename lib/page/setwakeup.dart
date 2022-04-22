@@ -1,11 +1,12 @@
 import 'package:flutter/material.dart';
+import 'package:wake_me_refresh/page/calculator.dart';
 
 class SetWakePage extends StatefulWidget {
   static const routeName = '/setwake';
 
-  const SetWakePage({Key? key}) : super(key: key);
-  //final String getType;
-  //const SetWakePage({Key? key, required this.getType}) : super(key: key);
+  //const SetWakePage({Key? key}) : super(key: key);
+  final int getType;
+  const SetWakePage({Key? key, required this.getType}) : super(key: key);
 
   @override
   State<StatefulWidget> createState() {
@@ -29,9 +30,20 @@ class _SetWakePageState extends State<SetWakePage> {
                   alwaysUse24HourFormat: true),
               child: child!);
         });
-    if (result != null) {
+
+    if (result != null && widget.getType != 0) {
       setState(() {
-        temp = 400;
+        if(widget.getType == 1) {
+          temp = 470;
+        } else if(widget.getType == 2) {
+          temp = 470;
+        } else if(widget.getType == 3) {
+          temp = 400;
+        } else if(widget.getType == 4) {
+          temp = 400;
+        }
+
+        //print(widget.getType);
 
         _min = result.minute.toInt() + temp;
         _hr = (result.hour.toInt()) + _min ~/ 60;
@@ -49,7 +61,7 @@ class _SetWakePageState extends State<SetWakePage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Set Wake-up Time'),
+        title: const Text('Set your Sleep time'),
       ),
       body: Center(
         child: Text(

@@ -3,7 +3,9 @@ import 'package:flutter/material.dart';
 class SetSleepPage extends StatefulWidget {
   static const routeName = '/setsleep';
 
-  const SetSleepPage({Key? key}) : super(key: key);
+  //const SetSleepPage({Key? key}) : super(key: key);
+  final int getType;
+  const SetSleepPage({Key? key, required this.getType}) : super(key: key);
 
   @override
   State<StatefulWidget> createState() {
@@ -28,9 +30,20 @@ class _SetSleepPageState extends State<SetSleepPage> {
                   alwaysUse24HourFormat: true),
               child: child!);
         });
-    if (result != null) {
+    if (result != null && widget.getType != 0) {
       setState(() {
-        temp = 400;
+        if(widget.getType == 1) {
+          temp = 470;
+        } else if(widget.getType == 2) {
+          temp = 470;
+        } else if(widget.getType == 3) {
+          temp = 400;
+        } else if(widget.getType == 4) {
+          temp = 400;
+        }
+
+        //print(temp);
+
         _hr = result.hour.toInt() - (temp ~/ 60);
         _min = result.minute.toInt();
         if(_hr < 1) {
@@ -42,7 +55,7 @@ class _SetSleepPageState extends State<SetSleepPage> {
         temp = temp % 60;
         if(_min < temp) {
           temp2 = _hr - 1;
-          print(temp2);
+          //print(temp2);
           if(temp2 < 1) {
             _hr = _hr + 24 - 1;
           } else {
@@ -65,7 +78,7 @@ class _SetSleepPageState extends State<SetSleepPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Set Sleep Time'),
+        title: const Text('Set your Wake-up Time'),
       ),
       body: Center(
         child: Text(

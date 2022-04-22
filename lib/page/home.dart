@@ -5,7 +5,7 @@ import 'package:wake_me_refresh/page/calculator.dart';
 import 'package:wake_me_refresh/page/chronotype.dart';
 
 class MyHomePage extends StatefulWidget {
-  static const routeName = '/';
+  static const routeName = '/home';
 
   const MyHomePage({Key? key}) : super(key: key);
 
